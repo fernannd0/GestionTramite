@@ -1,0 +1,16 @@
+services:
+  mariadb:
+    image: mariadb:11.4
+    container_name: gestionmariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: administrador123
+      MARIADB_DATABASE: GestionTramite
+      MARIADB_USER: admin
+      MARIADB_PASSWORD: admin123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_dev:/var/lib/mysql
+
+volumes:
+  mariadb_dev:
