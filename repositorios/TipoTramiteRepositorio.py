@@ -1,6 +1,6 @@
 from config.database import conectar
 from models.TipoTramite import TipoTramite
-class TipoTramiteRespositorio:
+class TipoTramiteRepositorio:
         
     """
     Esta funcion puede devolver un None(si no encuentra nada), un TipoTramite(si solo encuentra uno) o una lista:TipoTramite(si encuentra mas de uno) 

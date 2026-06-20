@@ -1,13 +1,22 @@
 from datetime import datetime
 from typing import Optional
 class TipoDocumentacion:
-    cantTipoDocumentacion=0
-    def __init__(self, nombreTipoDocumentacion, requiereEntregaWeb:bool):
-        cantTipoDocumentacion+=1
-        self.__codTipoDocumentacion=cantTipoDocumentacion
-        self.__fechaHoraBajaTipoDocumentacion:Optional[datetime]=None
+    def __init__(self, nombreTipoDocumentacion, requiereEntregaWeb:bool, codTipoDocumentacion:int=0, fechaHoraBajaTipoDocumentacion:Optional[datetime]=None):
+        self.__codTipoDocumentacion=codTipoDocumentacion
+        self.__fechaHoraBajaTipoDocumentacion=fechaHoraBajaTipoDocumentacion
         self.__nombreTipoDocumentacion=nombreTipoDocumentacion
         self.__requiereEntregaWeb=requiereEntregaWeb
+
+    
+    def __str__(self):
+        return f"""
+                ______TipoDocumentacion__________________
+                codigo: {self.__codTipoDocumentacion} 
+                nombre: {self.__nombreTipoDocumentacion}
+                requiere entrega web: {self.__requiereEntregaWeb}
+                fecha de Baja: {self.__fechaHoraBajaTipoDocumentacion}
+                ________________________________________
+                """
     
     @property
     def codTipoDocumentacion(self):
