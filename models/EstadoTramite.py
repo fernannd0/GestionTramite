@@ -1,19 +1,28 @@
 from datetime import datetime
 from typing import Optional
-from TipoEstado import TipoEstado
+from models.TipoEstado import TipoEstado
 
 class EstadoTramite:
-    cantEstadoTramite=0
-    def __init__(self, nombreEstadoTramite, tipoEstado:TipoEstado):
-        cantEstadoTramite+=1
-        self.__codEstadoTramite=cantEstadoTramite
+    def __init__(self, nombreEstadoTramite, tipoEstado:TipoEstado, codEstadoTramite:int=0, fechaHoraBajaEstadoTramite:Optional[datetime]=None):
+        self.__codEstadoTramite=codEstadoTramite
         self.__nombreEstadoTramite=nombreEstadoTramite
-        self.__fechaHoraBajaEstadoTramite:Optional[datetime]=None
-        sefl.__tipoEstado=tipoEstado
-    
+        self.__fechaHoraBajaEstadoTramite=fechaHoraBajaEstadoTramite
+        self.__tipoEstado=tipoEstado
+
+    def __str__(self):
+        return f"""
+                ______EstadoTramite_____________________
+                codigo: {self.__codEstadoTramite}
+                nombre: {self.__nombreEstadoTramite}
+                tipo de Estado: {self.__tipoEstado.nombreTipoEstado}
+                fecha de baja: {self.__fechaHoraBajaEstadoTramite}
+                ________________________________________
+                """   
+
+
     @property
     def codEstadoTramite(self):
-        return self.__fechaHoraBajaEstadoTramite
+        return self.__codEstadoTramite
     
     @property
     def nombreEstadoTramite(self):
@@ -32,3 +41,6 @@ class EstadoTramite:
     @property
     def tipoEstado(self):
         return self.__tipoEstado
+    
+    def setTipoEstado(self, tipoEstado:TipoEstado):
+        self.__tipoEstado=tipoEstado
